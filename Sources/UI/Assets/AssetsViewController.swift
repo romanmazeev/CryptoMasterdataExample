@@ -32,8 +32,13 @@ class AssetsViewController: StateStoreTableViewController<AssetsState, AssetsAct
         super.willTransition(to: newCollection, with: coordinator)
         guard newCollection.userInterfaceStyle != traitCollection.userInterfaceStyle else { return }
         tableView.visibleCells.forEach {
-            guard let cell = $0 as? AssetCell else { fatalError("Cell is not implemented") }
-            cell.updateImageForUserInterfaceStype()
+            if let cell = $0 as? AssetCell {
+                cell.updateImageForUserInterfaceStype()
+            } else if let cell = $0 as? FiatWalletCell {
+                cell.updateImageForUserInterfaceStype()
+            } else {
+                return
+            }            
         }
     }
     

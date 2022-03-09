@@ -103,7 +103,7 @@ final class AssetCell: UITableViewCell {
         
         switch asset.option {
         case .wallet(let isDefault) where isDefault:
-            backgroundColor = .systemYellow.withAlphaComponent(0.1)
+            backgroundColor = .systemYellow.withAlphaComponent(0.3)
         default:
             backgroundColor = .systemBackground
         }
