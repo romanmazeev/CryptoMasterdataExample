@@ -1,21 +1,21 @@
 //
-//  Repository.swift
+//  UserRepository.swift
 //  BitpandaiOSTest
 //
-//  Created by Roman Mazeev on 07/03/22.
+//  Created by Roman Mazeev on 08/03/22.
 //
 
 import ComposableArchitecture
 
-enum RepositoryError: Error {
+enum UserRepositoryError: Error {
     case invalidURL
 }
 
-struct Repository {
-    var getUser:() -> Effect<User, Error>
+struct UserRepository {
+    var getUser: () -> Effect<User, Error>
 }
 
-extension Repository {
+extension UserRepository {
     static let live = Self {
         .catching {
             if let url = Bundle.main.url(forResource: "Mastrerdata", withExtension: "json") {
@@ -23,14 +23,14 @@ extension Repository {
                 let decoder = JSONDecoder()
                 return try decoder.decode(User.self, from: data)
             } else {
-                throw RepositoryError.invalidURL
+                throw UserRepositoryError.invalidURL
             }
         }
     }
 }
 
-extension Repository {
+extension UserRepository {
     static let failing = Self {
-        .failing("Repository.getUser")
+        .failing("UserRepository.getUser")
     }
 }

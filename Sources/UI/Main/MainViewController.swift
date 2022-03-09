@@ -7,23 +7,17 @@
 
 import UIKit
 import ComposableArchitecture
-import Combine
 
 final class MainViewController: UITabBarController, UITabBarControllerDelegate {
     private let store: Store<MainState, MainAction>
-    private let viewStore: ViewStore<ViewState, MainAction>
-    
-    struct ViewState: Equatable {
-        init(state: MainState) {
-        }
-    }
+    private let viewStore: ViewStore<MainState, MainAction>
     
     init(store: Store<MainState, MainAction>) {
         self.store = store
-        self.viewStore = ViewStore(store.scope(state: ViewState.init))
+        self.viewStore = ViewStore(store)
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -41,10 +35,11 @@ final class MainViewController: UITabBarController, UITabBarControllerDelegate {
             case .assets:
                 let assetsViewController = AssetsViewController(
                     store: store.scope(
-                        state: \.assets,
+                        state: \.assetState,
                         action: MainAction.assets
                     )
                 )
+                assetsViewController.title = "Assets"
                 let assetsBarItem = UITabBarItem(
                     title: "Assets",
                     image: UIImage(systemName: "chart.line.uptrend.xyaxis.circle"),
@@ -53,12 +48,13 @@ final class MainViewController: UITabBarController, UITabBarControllerDelegate {
                 assetsViewController.tabBarItem = assetsBarItem
                 return UINavigationController(rootViewController: assetsViewController)
             case .wallets:
-                let walletsViewController = WalletsViewController(
+                let walletsViewController = WalletAssetsViewController(
                     store: store.scope(
-                        state: \.wallets,
+                        state: \.walletAssetsState,
                         action: MainAction.wallets
                     )
                 )
+                walletsViewController.title = "Wallets"
                 let walletsBarItem = UITabBarItem(
                     title: "Wallets",
                     image: UIImage(systemName: "bag.circle"),

@@ -1,13 +1,12 @@
 //
 //  Models.swift
-//  BitpandaiOSTest
+//  BitpandaTest
 //
-//  Created by Roman Mazeev on 04/03/22.
+//  Created by Roman Mazeev on 09/03/22.
 //
 
 import Foundation
 
-// MARK: - Welcome
 struct User: Codable {
     let holdings: Holdings
     
@@ -16,13 +15,11 @@ struct User: Codable {
     }
 }
 
-// MARK: - Holdings
 struct Holdings: Codable {
     let type: String
     let attributes: HoldingAttributes
 }
 
-// MARK: - HoldingAttributes
 struct HoldingAttributes: Codable {
     let cryptocoins, commodities: [Commodity]
     let fiats: [Fiat]
@@ -36,14 +33,12 @@ struct HoldingAttributes: Codable {
     }
 }
 
-// MARK: - Commodity
 struct Commodity: Codable {
     let id: String
     let type: String
     let attributes: CommodityAttributes
 }
 
-// MARK: - CommodityAttributes
 struct CommodityAttributes: Codable {
     let symbol, name: String
     let sort: Int
@@ -167,14 +162,12 @@ enum Family: String, Codable {
     case neo = "NEO"
 }
 
-// MARK: - IeoPhase
 struct IeoPhase: Codable {
     let type: String
     let attributes: IeoPhaseAttributes
     let id: String
 }
 
-// MARK: - IeoPhaseAttributes
 struct IeoPhaseAttributes: Codable {
     let name: String
     let phaseNumber: Int
@@ -192,7 +185,6 @@ struct IeoPhaseAttributes: Codable {
     }
 }
 
-// MARK: - EndDate
 struct EndDate: Codable {
     let dateISO8601: String
     let unix: String
@@ -203,14 +195,12 @@ struct EndDate: Codable {
     }
 }
 
-// MARK: - Wallet
 struct Wallet: Codable {
     let type: CommodityWalletType
     let attributes: CommodityWalletAttributes
     let id: String
 }
 
-// MARK: - CommodityWalletAttributes
 struct CommodityWalletAttributes: Codable {
     let cryptocoinID, cryptocoinSymbol, balance: String
     let isDefault: Bool
@@ -233,14 +223,12 @@ enum CommodityWalletType: String, Codable {
     case wallet = "wallet"
 }
 
-// MARK: - Fiat
 struct Fiat: Codable {
     let type: String
     let attributes: FiatAttributes
     let id: String
 }
 
-// MARK: - FiatAttributes
 struct FiatAttributes: Codable {
     let symbol, name: String
     let precision: Int
@@ -268,14 +256,12 @@ struct FiatAttributes: Codable {
     }
 }
 
-// MARK: - FiatWallet
 struct FiatWallet: Codable {
     let id: String
     let type: String
     let attributes: FiatWalletAttributes
 }
 
-// MARK: - FiatWalletAttributes
 struct FiatWalletAttributes: Codable {
     let fiatId, fiatSymbol, balance, name: String
     let pendingTransactionsCount: Int
