@@ -33,7 +33,7 @@ class WalletAssetsViewController: AssetsViewController {
     }
     
     override func registerCell() {
-        tableView.register(AssetCell.self, forCellReuseIdentifier: AssetCell.reuseIdentifier)
+        super.registerCell()
         tableView.register(FiatWalletCell.self, forCellReuseIdentifier: FiatWalletCell.reuseIdentifier)
     }
     
