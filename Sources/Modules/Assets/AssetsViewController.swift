@@ -10,7 +10,13 @@ import ComposableArchitecture
 
 class AssetsViewController: StateStoreTableViewController<AssetsState, AssetsAction> {
     private lazy var searchController = UISearchController(searchResultsController: nil)
-    private lazy var dataSource = makeDataSource()
+   
+    private lazy var dataSource: UITableViewDiffableDataSource<UserAsset.AssetType, UserAsset> = {
+        let dataSource = makeDataSource()
+        dataSource.defaultRowAnimation = .fade
+        return dataSource
+    }()
+
     private lazy var filtersSegmentedControl = UISegmentedControl(
         items: AssetsState.Filter.allCases.map { $0.rawValue.capitalized }
     )
