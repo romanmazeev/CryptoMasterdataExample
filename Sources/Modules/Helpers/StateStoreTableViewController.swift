@@ -1,6 +1,6 @@
 //
 //  StateStoreTableViewController.swift
-//  BitpandaTest
+//  CryptoMasterExampleTest
 //
 //  Created by Roman Mazeev on 07/03/22.
 //

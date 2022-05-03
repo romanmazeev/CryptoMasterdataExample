@@ -1,6 +1,6 @@
 //
 //  WalletAssetsViewController.swift
-//  BitpandaTest
+//  CryptoMasterExampleTest
 //
 //  Created by Roman Mazeev on 09/03/22.
 //

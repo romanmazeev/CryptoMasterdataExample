@@ -5,7 +5,7 @@ let infoPlist: [String: InfoPlist.Value] = [
 ]
 
 let project = Project(
-    name: "BitpandaTest",
+    name: "CryptoMasterdataExample",
     packages: [
         .remote(url: "https://github.com/pointfreeco/swift-composable-architecture.git", requirement: .upToNextMajor(from: "0.33.1")),
         .remote(url: "https://github.com/apple/swift-log.git", requirement: .upToNextMajor(from: "1.4.2")),
@@ -15,10 +15,10 @@ let project = Project(
     ],
     targets: [
         Target(
-            name: "BitpandaTest",
+            name: "CryptoMasteradataExample",
             platform: .iOS,
             product: .app,
-            bundleId: "com.romanmazeev.BitpandaTest",
+            bundleId: "com.romanmazeev.CryptoMasterdataExample",
             infoPlist: .extendingDefault(with: infoPlist),
             sources: [
                 "Sources/**"

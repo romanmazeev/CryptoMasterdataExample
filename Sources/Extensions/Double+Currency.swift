@@ -1,6 +1,6 @@
 //
 //  Double+Currency.swift
-//  BitpandaTest
+//  CryptoMasterExample
 //
 //  Created by Roman Mazeev on 09/03/22.
 //

@@ -1,6 +1,6 @@
 //
 //  Nuke+AssetType.swift
-//  BitpandaTest
+//  CryptoMasterExampleTest
 //
 //  Created by Roman Mazeev on 08/03/22.
 //

@@ -1,6 +1,6 @@
 //
 //  MainCore.swift
-//  BitpandaiOSTest
+//  CryptoMasterExampleiOSTest
 //
 //  Created by Roman Mazeev on 09/03/22.
 //
